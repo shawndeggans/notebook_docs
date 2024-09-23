@@ -23,8 +23,8 @@ This tutorial guides you through the process of setting up automated documentati
 4. Inside the `docs` directory, create a file named `_config.yml` with the following content:
 
    ```yaml
-   title: Fraud Analytics Documentation
-   description: Documentation for Fraud Analytics CAR Suites
+   title: Analytics Documentation
+   description: Documentation for Analytics
    theme: jekyll-theme-cayman
    ```
 
@@ -36,9 +36,9 @@ This tutorial guides you through the process of setting up automated documentati
    title: Home
    ---
 
-   # Welcome to Fraud Analytics Documentation
+   # Welcome to Analytics Documentation
 
-   This site contains documentation for our CAR Suites.
+   This site contains documentation Analytics.
 
    ## Available Documentation:
 
@@ -93,9 +93,9 @@ This tutorial guides you through the process of setting up automated documentati
            echo "title: Home" >> docs/index.md
            echo "---" >> docs/index.md
            echo "" >> docs/index.md
-           echo "# Welcome to Fraud Analytics Documentation" >> docs/index.md
+           echo "# Welcome to Analytics Documentation" >> docs/index.md
            echo "" >> docs/index.md
-           echo "This site contains documentation for our CAR Suites." >> docs/index.md
+           echo "This site contains documentation for Analytics." >> docs/index.md
            echo "" >> docs/index.md
            echo "## Available Documentation:" >> docs/index.md
            echo "" >> docs/index.md
