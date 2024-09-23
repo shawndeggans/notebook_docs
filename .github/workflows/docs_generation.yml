@@ -34,7 +34,16 @@ jobs:
 
     - name: Update index page
       run: |
-        echo "## Available Documentation:" > docs/index.md
+        echo "---" > docs/index.md
+        echo "layout: default" >> docs/index.md
+        echo "title: Home" >> docs/index.md
+        echo "---" >> docs/index.md
+        echo "" >> docs/index.md
+        echo "# Welcome to Fraud Analytics Documentation" >> docs/index.md
+        echo "" >> docs/index.md
+        echo "This site contains documentation for our CAR Suites." >> docs/index.md
+        echo "" >> docs/index.md
+        echo "## Available Documentation:" >> docs/index.md
         echo "" >> docs/index.md
         for file in docs/*.md; do
           if [ "$(basename "$file")" != "index.md" ]; then
