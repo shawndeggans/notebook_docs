@@ -11,6 +11,8 @@ on:
 jobs:
   convert-and-publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
     - uses: actions/checkout@v4
 
@@ -47,3 +49,5 @@ jobs:
         git add docs
         git commit -m "Update documentation (Manual trigger: ${{ github.event.inputs.reason }})" || echo "No changes to commit"
         git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
