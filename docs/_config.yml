@@ -1,0 +1,3 @@
+title: notebook_docs
+description: a repo to demonstrate how to create GitHub pages documentation from Jupyter notebooks
+theme: jekyll-theme-cayman
