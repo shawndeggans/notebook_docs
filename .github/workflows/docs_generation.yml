@@ -1,20 +1,21 @@
 name: Generate Docs
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'notebooks/**'
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Reason for running the workflow'
+        required: false
+        default: 'Manual trigger'
 
 jobs:
   convert-and-publish:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
         python-version: '3.x'
 
@@ -31,7 +32,7 @@ jobs:
 
     - name: Update index page
       run: |
-        echo "## Available Documentation:" >> docs/index.md
+        echo "## Available Documentation:" > docs/index.md
         echo "" >> docs/index.md
         for file in docs/*.md; do
           if [ "$(basename "$file")" != "index.md" ]; then
@@ -41,8 +42,8 @@ jobs:
 
     - name: Commit and push changes
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
         git add docs
-        git commit -m "Update documentation" || echo "No changes to commit"
+        git commit -m "Update documentation (Manual trigger: ${{ github.event.inputs.reason }})" || echo "No changes to commit"
         git push
